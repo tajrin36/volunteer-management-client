@@ -2,13 +2,15 @@ import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import AuthContext from "../../providers/AuthContext";
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const navigate = useNavigate()
+
+    const { createUser,updateUserProfile } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -28,14 +30,25 @@ const Register = () => {
             toast.error("Password must be at least 6 characters, include one uppercase letter, one number, and one special character.")
             return; // Stop form submission
         }
-        toast.success("Registration successful!");
+        navigate('/signin');
 
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
+                toast.success("Registration successful!");
+                updateUserProfile({
+                    displayName: userName,
+                    photoURL: photo
+                }).then(()=> {
+                    navigate('/signin');
+                }).catch((error)=>{
+                    console.log(error.message);
+                    toast.error("User already exist!")
+                })
             })
             .catch(error => {
                 console.log(error.message);
+                toast.error(error.message)
             })
 
         // form.reset();
