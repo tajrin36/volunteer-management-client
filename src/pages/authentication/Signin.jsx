@@ -1,4 +1,4 @@
-import { Link , useNavigate} from "react-router";
+import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
 import { FiEye } from "react-icons/fi";
@@ -10,7 +10,20 @@ const Signin = () => {
 
     const navigate = useNavigate()
 
-    const { userSignIn, } = useContext(AuthContext);
+    const { userSignIn,signInWithGoogle } = useContext(AuthContext);
+
+    const handleGoogleSignIn = async () => {
+        try {
+            await signInWithGoogle()
+
+            toast.success('Signin Successful')
+            navigate('/')
+        } catch (err) {
+            console.log(err)
+            toast.error(err?.message)
+        }
+    }
+
 
     const handleSignin = e => {
         e.preventDefault();
@@ -29,7 +42,8 @@ const Signin = () => {
             })
             .catch(error => {
                 console.log(error.message);
-                toast.error(error.message)
+                toast.error("Please register your account!")
+                navigate('/register')
             })
     }
 
@@ -38,7 +52,7 @@ const Signin = () => {
         <div>
             <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
                 <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-                    <button className="btn btn-outline w-full flex items-center gap-2">
+                    <button onClick={handleGoogleSignIn} className="btn btn-outline w-full flex items-center gap-2">
                         <FcGoogle className="text-2xl" />
                         Sign in with Google
                     </button>

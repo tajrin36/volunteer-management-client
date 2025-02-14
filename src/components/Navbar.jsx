@@ -1,6 +1,6 @@
 import { useContext } from "react"; // Fixed import
 import AuthContext from "../providers/AuthContext";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
     const { user, userSignOut } = useContext(AuthContext);
@@ -10,8 +10,22 @@ const Navbar = () => {
     };
 
     const links = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><a>All volunteer</a></li>
+        <li className="text-lg font-semibold">
+            <NavLink
+                to="/"
+                className={({ isActive }) => isActive ? "text-white font-bold underline" : ""}
+            >
+                Home
+            </NavLink>
+        </li>
+        <li className="text-lg font-semibold">
+            <NavLink
+                to="/allVolunteer"
+                className={({ isActive }) => isActive ? "text-white font-bold underline" : ""}
+            >
+                All Volunteer
+            </NavLink>
+        </li>
     </>;
 
     return (
@@ -20,8 +34,8 @@ const Navbar = () => {
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> 
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> 
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </div>
                         <ul
@@ -30,7 +44,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <a className="btn btn-ghost text-2xl">HeroHands</a>
                 </div>
 
                 <div className="navbar-center hidden lg:flex">
@@ -58,9 +72,9 @@ const Navbar = () => {
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                <li>{user?.displayName}</li>
-                                <li><a>Settings</a></li>
-                                <li><button onClick={handleLogout}>Logout</button></li>
+                                <li className="px-2 text-lg font-semibold">{user?.displayName}</li>
+                                <li className=" font-semibold"><Link to='addVolunteerNeed'>Add volunteer</Link></li>
+                                <li className=""><button className="font-semibold" onClick={handleLogout}>Logout</button></li>
                             </ul>
                         </div>
                     )}
