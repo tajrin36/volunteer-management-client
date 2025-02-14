@@ -2,12 +2,13 @@ import { useState, useContext } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from "../providers/AuthContext"; // Assuming user details are in AuthContext
+import axios from "axios";
 
 const AddVolunteerNeed = () => {
     const { user } = useContext(AuthContext); // Fetch logged-in user details
     const [startDate, setStartDate] = useState(new Date());
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
         const form = e.target;
         const thumbnail = form.thumbnail.value;
@@ -35,7 +36,15 @@ const AddVolunteerNeed = () => {
             }
         };
 
-        console.log((formData))
+        console.log((formData));
+
+        // make a post request
+        const { data } = await axios.post(
+            `${import.meta.env.VITE_API_URL}/add-volunteer`,
+            formData
+        )
+        console.log(data);
+
     }
 
     return (
