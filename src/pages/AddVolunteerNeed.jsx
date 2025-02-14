@@ -9,6 +9,33 @@ const AddVolunteerNeed = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        const form = e.target;
+        const thumbnail = form.thumbnail.value;
+        const post_title = form.post_title.value;
+        const description = form.description.value;
+        const category = form.category.value;
+        const location = form.location.value;
+        const volunteers_needed = form.volunteers_needed.value;
+        const deadline = startDate;
+        const email = form.email.value;
+
+        const formData =
+        {
+            thumbnail,
+            post_title,
+            description,
+            category,
+            location,
+            volunteers_needed,
+            deadline,
+            organizer: {
+                email,
+                name: user?.displayName,
+                photo: user?.photoURL,
+            }
+        };
+
+        console.log((formData))
     }
 
     return (
@@ -72,13 +99,13 @@ const AddVolunteerNeed = () => {
                         {/* Organizer Name (Read-only) */}
                         <div>
                             <label className='text-gray-700 ' htmlFor='organizer_name'>Organizer Name</label>
-                            <input id='organizer_name' type='text' value={user?.displayName || "Anonymous"} readOnly className='block w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border border-gray-200 rounded-md focus:outline-none' />
+                            <input id='organizer_name' name="name" type='text' value={user?.displayName || "Anonymous"} readOnly className='block w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border border-gray-200 rounded-md focus:outline-none' />
                         </div>
 
                         {/* Organizer Email (Read-only) */}
                         <div>
                             <label className='text-gray-700 ' htmlFor='organizer_email'>Organizer Email</label>
-                            <input id='organizer_email' type='email' value={user?.email || "Not provided"} readOnly className='block w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border border-gray-200 rounded-md focus:outline-none' />
+                            <input id='organizer_email' name="email" type='email' value={user?.email || "Not provided"} readOnly className='block w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border border-gray-200 rounded-md focus:outline-none' />
                         </div>
                     </div>
 
