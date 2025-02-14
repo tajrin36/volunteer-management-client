@@ -3,8 +3,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from "../providers/AuthContext"; // Assuming user details are in AuthContext
 import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const AddVolunteerNeed = () => {
+
+    const navigate = useNavigate();
     const { user } = useContext(AuthContext); // Fetch logged-in user details
     const [startDate, setStartDate] = useState(new Date());
 
@@ -38,12 +42,19 @@ const AddVolunteerNeed = () => {
 
         console.log((formData));
 
-        // make a post request
-        const { data } = await axios.post(
-            `${import.meta.env.VITE_API_URL}/add-volunteer`,
-            formData
-        )
-        console.log(data);
+        try {
+            // make a post request
+            await axios.post(
+                `${import.meta.env.VITE_API_URL}/add-volunteer`,
+                formData
+            )
+            form.reset();
+            toast.success("Data added successfully!")
+            navigate('/myVolunteerNeed')
+        } catch (err) {
+            console.log(err);
+            toast.error("Something went wrong!")
+        }
 
     }
 
@@ -84,6 +95,7 @@ const AddVolunteerNeed = () => {
                                 <option value='Education'>Education</option>
                                 <option value='Social Service'>Social Service</option>
                                 <option value='Animal Welfare'>Animal Welfare</option>
+                                <option value='Environmental'>Environmental</option>
                             </select>
                         </div>
 

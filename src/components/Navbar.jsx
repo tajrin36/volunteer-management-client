@@ -74,6 +74,7 @@ const Navbar = () => {
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                                 <li className="px-2 text-lg font-semibold">{user?.displayName}</li>
                                 <li className=" font-semibold"><Link to='addVolunteerNeed'>Add volunteer</Link></li>
+                                <li className=" font-semibold"><Link to='/myVolunteerNeed'>My volunteer post</Link></li>
                                 <li className=""><button className="font-semibold" onClick={handleLogout}>Logout</button></li>
                             </ul>
                         </div>
