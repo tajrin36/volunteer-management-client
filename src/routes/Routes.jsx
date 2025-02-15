@@ -8,6 +8,7 @@ import AllVolunteers from "../pages/AllVolunteers";
 import PrivateRoute from "./PrivateRoute";
 import AddVolunteerNeed from "../pages/AddVolunteerNeed";
 import MyVolunteerNeedPost from "../pages/MyVolunteerNeedPost";
+import UpdatePost from "../pages/UpdatePost";
 
 
 const router = createBrowserRouter([
@@ -45,6 +46,14 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <MyVolunteerNeedPost></MyVolunteerNeedPost>
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: '/update/:id',
+                element: (
+                    <PrivateRoute>
+                        <UpdatePost></UpdatePost>
                     </PrivateRoute>
                 ),
             },
