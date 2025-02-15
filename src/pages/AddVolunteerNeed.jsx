@@ -96,6 +96,7 @@ const AddVolunteerNeed = () => {
                                 <option value='Social Service'>Social Service</option>
                                 <option value='Animal Welfare'>Animal Welfare</option>
                                 <option value='Environmental'>Environmental</option>
+                                <option value='Emergency Response'>Emergency Response</option>
                             </select>
                         </div>
 

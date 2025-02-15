@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import VolunteerCard from "../components/VolunteerCard";
 import { Link } from "react-router";
+import TestimonialSection from "../components/TestimonialSection";
 
 const Home = () => {
 
@@ -31,8 +32,12 @@ const Home = () => {
 
     return (
         <div className="container mx-auto">
-            <Carousel></Carousel>
-            <VolunteerBadges></VolunteerBadges>
+            <div>
+                <Carousel></Carousel>
+            </div>
+            <div>
+                <VolunteerBadges></VolunteerBadges>
+            </div>
 
             <div className="my-10 px-4">
                 <h2 className="text-3xl font-bold text-center mb-6">🚀 Volunteer Needs Now</h2>
@@ -44,6 +49,10 @@ const Home = () => {
                         See All
                     </Link>
                 </div>
+            </div>
+
+            <div>
+                <TestimonialSection></TestimonialSection>
             </div>
 
 
