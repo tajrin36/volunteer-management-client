@@ -10,7 +10,8 @@ const VolunteerCard = ({ volunteer }) => {
         category,
         // location,
         // volunteers_needed,
-        deadline
+        deadline,
+        _id
     } = volunteer || {};
 
 
@@ -31,7 +32,7 @@ const VolunteerCard = ({ volunteer }) => {
                         <p className="text-sm font-medium text-red-500 mt-2">⏳ Deadline: {format(new Date(deadline),'P')}</p>
 
                         <div className="flex justify-center mt-4">
-                            <Link to="/volunteer-details" className="bg-[#eca12c] text-white px-5 py-2 rounded-md font-medium hover:bg-[#d47f1e] transition-all">
+                            <Link to={`/volunteer/${_id}`} className="bg-[#eca12c] text-white px-5 py-2 rounded-md font-medium hover:bg-[#d47f1e] transition-all">
                                 View Details
                             </Link>
                         </div>
