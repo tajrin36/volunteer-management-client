@@ -11,6 +11,7 @@ import MyVolunteerNeedPost from "../pages/MyVolunteerNeedPost";
 import UpdatePost from "../pages/UpdatePost";
 import VolunteerPostDetails from "../pages/VolunteerPostDetails";
 import BeAVolunteer from "../pages/BeAVolunteer";
+import MyRequest from "../pages/MyRequest";
 
 
 const router = createBrowserRouter([
@@ -72,6 +73,14 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <BeAVolunteer></BeAVolunteer>
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: '/myRequest',
+                element: (
+                    <PrivateRoute>
+                        <MyRequest></MyRequest>
                     </PrivateRoute>
                 ),
             },

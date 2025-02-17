@@ -1,14 +1,27 @@
 import { useContext } from "react"; // Fixed import
 import AuthContext from "../providers/AuthContext";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
     const { user, userSignOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    // const handleLogout = async () => {
+    //     await userSignOut();
+    // };
 
     const handleLogout = async () => {
-        await userSignOut();
+        try {
+            
+            toast.success("Logged out successfully!");
+            await userSignOut();
+            navigate("/signin");
+        } catch (error) {
+            console.error("Logout error:", error);
+            toast.error("Failed to log out. Try again.");
+        }
     };
-
     const links = <>
         <li className="text-lg font-semibold">
             <NavLink
@@ -76,6 +89,7 @@ const Navbar = () => {
                                 <li className="px-2 text-lg font-semibold">{user?.displayName}</li>
                                 <li className=" font-semibold"><Link to='addVolunteerNeed'>Add volunteer</Link></li>
                                 <li className=" font-semibold"><Link to='/myVolunteerNeed'>My volunteer post</Link></li>
+                                <li className=" font-semibold"><Link to='/myRequest'>My request post</Link></li>
                                 <li className=""><button className="font-semibold" onClick={handleLogout}>Logout</button></li>
                             </ul>
                         </div>

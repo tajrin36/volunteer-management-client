@@ -60,7 +60,7 @@ const BeAVolunteer = () => {
 
             setSuggestion(" "); 
             toast.success("Volunteer request submitted successfully!");
-            navigate('/myVolunteerNeed');
+            navigate('/myRequest');
         } catch (err) {
             console.error(err);
             toast.error("Something went wrong!");
@@ -154,7 +154,7 @@ const BeAVolunteer = () => {
                     </div>
 
                     {/* Submit Button */}
-                    <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">
+                    <button type="submit" className="w-full bg-[#eca12c] text-white py-2 rounded-md hover:bg-[#d9941c]">
                         Request
                     </button>
                 </form>
