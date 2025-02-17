@@ -28,7 +28,7 @@ const Register = () => {
         const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
         if (!passwordRegex.test(password)) {
             toast.error("Password must be at least 6 characters, include one uppercase letter, one number, and one special character.")
-            return; // Stop form submission
+            return; 
         }
         navigate('/signin');
 
