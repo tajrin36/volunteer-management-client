@@ -115,6 +115,9 @@ const MyRequest = () => {
                                                 <span>Deadline</span>
                                             </th>
                                             <th className="px-4 py-3.5 text-sm font-normal text-left text-gray-500">
+                                                <span>Volunteers</span>
+                                            </th>
+                                            <th className="px-4 py-3.5 text-sm font-normal text-left text-gray-500">
                                                 Category
                                             </th>
                                             <th className="px-4 py-3.5 text-sm font-normal text-left text-gray-500">
