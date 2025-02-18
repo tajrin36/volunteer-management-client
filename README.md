@@ -1,8 +1,36 @@
-# React + Vite
+# Chill-Game-Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Here i make a MERN stack project. Basically this is a volunteer management system website.User can register and sign in with their account. User can post any volunteer need post. User can search by the title and more more! This is a user friendly website. 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Website-view
+
+![Volunteer-management-system](./src/assets/brave_MyqU5DoU4j.png)
+
+## Live-Link
+
+[Volunteer-management-system](https://job-portal-website-1eda1.web.app/)
+
+
+## Uses Technologies 
+
+- ReactJS
+- Tailwind
+- DaisyUI
+- Reat Toastify
+- Reat Proptypes
+- react icon
+and  Many More
+
+
+
+## 3 key features 
+
+- Login,Registration 
+- View all volunteer need post
+- Add volunteer need post
+- Delete volunteer need post
+- Edit volunteer need post
+- View details
+- Search by title
+- Be a volunteer request
